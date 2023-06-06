@@ -5,7 +5,7 @@ Thư viện ota qua ble cho esp32. Tải app BLE OTA tên apk và ios
 iot47_ble_ota_begin(&ch1_BLECharacteristic); //bắt buộc phải goi
 Gọi trong setup ( ch1_BLECharacteristic ) là đối số
 
-# đăng kí callback
+# Đăng kí callback
 ```
   iot47_ble_ota_set_begin_callback([](uint32_t curen, uint32_t totol){
       Serial.println("Begin ota");
