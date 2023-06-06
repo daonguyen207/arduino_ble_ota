@@ -1,0 +1,7 @@
+iot47_ble_ota_begin	KEYWORD1
+iot47_ble_ota_set_begin_callback	KEYWORD1
+iot47_ble_ota_set_proces_callback	KEYWORD1
+iot47_ble_ota_set_end_callback	KEYWORD1
+iot47_ble_ota_set_error_callback	KEYWORD1
+iot47_ota_task	KEYWORD1
+iot47_stop_ota	KEYWORD1
