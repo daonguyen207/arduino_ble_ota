@@ -1,5 +1,6 @@
 # arduino_ble_ota
 Thư viện ota qua ble cho esp32. Tải app BLE OTA trên apk và ios
+APK: https://play.google.com/store/apps/details?id=com.esp32.ble.ota
 
 # Khởi tạo:
 iot47_ble_ota_begin(&ch1_BLECharacteristic); //bắt buộc phải goi
