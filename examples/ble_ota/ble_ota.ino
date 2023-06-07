@@ -25,7 +25,7 @@ class MyServerCallbacks: public BLEServerCallbacks {
   };
   void onDisconnect(BLEServer* pServer) {
     deviceConnected = false;
-    iot47_stop_ota(); //nên gọi hàm này để hủy ota khi bị mất kết nối đột ngột
+    iot47_stop_ota();
     Serial.println("Client disconnect");
     pServer->startAdvertising();
   }
@@ -38,7 +38,7 @@ class MyCallbacks: public BLECharacteristicCallbacks {
 
       //phần này xử lí nhận data ble của user
       if (rxValue.length() > 0) {
-        Serial.println("*********");
+        Serial.println("ble len: " + String(rxValue.length()));
         Serial.print("Received Value: ");
         for (int i = 0; i < rxValue.length(); i++)
           Serial.print(rxValue[i]);
@@ -83,7 +83,7 @@ void setup()
   Serial.println("Waiting a client connection to notify...");
 
 
-  iot47_ble_ota_begin(&ch1_BLECharacteristic); //bắt buộc phải goik
+  iot47_ble_ota_begin(&ch1_BLECharacteristic); //bắt buộc phải gọi
 
   //đăng kí callback, tùy user
   iot47_ble_ota_set_begin_callback([](uint32_t curen, uint32_t totol){
