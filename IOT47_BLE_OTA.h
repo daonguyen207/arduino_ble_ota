@@ -4,6 +4,7 @@
 #include <Update.h>
 int UpdateRun()
 {
+  Serial.println("Start update");
   if (Update.end())
   {
       Serial.println("OTA finished!");
@@ -40,9 +41,23 @@ ota_callback_t end_callback;
 ota_callback_t error_callback;
 
 BLECharacteristic *OTA_BLECharacteristic;
+void ble_ota_reset_task(void *pvParameters)
+{
+    for(;;)
+    {
+        if(ota_state == OTA_DOWNLOADDONE)
+        {
+            delay(500);
+            UpdateRun();
+            vTaskDelete(NULL); 
+        }
+        delay(2000);
+    }
+}
 void iot47_ble_ota_begin(BLECharacteristic *c)
 {
   OTA_BLECharacteristic = c;
+  xTaskCreate(&ble_ota_reset_task, "ble_ota_reset_task", 1024, NULL, 5, NULL);
 }
 
 void iot47_ble_ota_set_begin_callback(ota_callback_t c)
@@ -124,7 +139,6 @@ int iot47_ota_task(uint8_t *rxValue, uint8_t len)
         OTA_BLECharacteristic->notify();
         ota_state = OTA_DOWNLOADDONE;
         if(end_callback!=0)end_callback(ota_fw_counter,ota_fw_size);
-        UpdateRun();
         return 3;
       }
     }
