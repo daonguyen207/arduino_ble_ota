@@ -27,7 +27,7 @@ Gọi trong setup ( ch1_BLECharacteristic ) là đối số
   });
 ```
 
-# Gọi handler
+# Gọi handle
 if(iot47_ota_task((uint8_t *)&(rxValue[0]),rxValue.length()))return;
 Hàm này gọi trong event rx của ble
 
