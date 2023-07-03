@@ -3,6 +3,8 @@ Thư viện ota qua ble cho esp32 arduino. Tải app BLE OTA trên apk và ios.
 
 APK: https://play.google.com/store/apps/details?id=com.esp32.ble.ota
 
+IOS: https://apps.apple.com/app/ble-ota/id6449975077?platform=iphone
+
 Phiên bản cho espidf: https://github.com/daonguyen207/espidf_ble_ota
 
 # Khởi tạo:
