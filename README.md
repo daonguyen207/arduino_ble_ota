@@ -8,8 +8,10 @@ IOS: https://apps.apple.com/app/ble-ota/id6449975077?platform=iphone
 Phiên bản cho espidf: https://github.com/daonguyen207/espidf_ble_ota
 
 # Khởi tạo:
+```
 iot47_ble_ota_begin(&ch1_BLECharacteristic); //bắt buộc phải goi
 Gọi trong setup ( ch1_BLECharacteristic ) là đối số
+```
 
 # Đăng kí callback
 ```
@@ -30,10 +32,14 @@ Gọi trong setup ( ch1_BLECharacteristic ) là đối số
 ```
 
 # Gọi handle
+```
 if(iot47_ota_task((uint8_t *)&(rxValue[0]),rxValue.length()))return;
 Hàm này gọi trong event rx của ble
+```
 
 # Hủy ota
+```
 iot47_stop_ota();
 Hàm này gọi ở hàm mất kết nối
+```
 
