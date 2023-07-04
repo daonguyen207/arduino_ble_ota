@@ -34,12 +34,12 @@ Gọi trong setup ( ch1_BLECharacteristic ) là đối số
 # Gọi handle
 ```
 if(iot47_ota_task((uint8_t *)&(rxValue[0]),rxValue.length()))return;
-Hàm này gọi trong event rx của ble
 ```
+Hàm này gọi trong event rx của ble
 
 # Hủy ota
 ```
 iot47_stop_ota();
-Hàm này gọi ở hàm mất kết nối
 ```
+Hàm này gọi ở hàm mất kết nối
 
